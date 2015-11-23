@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="ThemeHouse_EditUserDate" title="[⌂] Edit User Join Date" version_string="1.0.4" version_id="1447261019" url="http://xf.themehouse.io/" install_callback_class="ThemeHouse_Install" install_callback_method="install" uninstall_callback_class="ThemeHouse_Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates>
+    <template title="th_admin_user_edit_panes_edituserjoindate"><![CDATA[<xen:controlunit label="{xen:phrase joined}:">
+	<xen:select name="register_date_month" value="{$user.register_date_month}" inputclass="autoSize">
+		<xen:option value="1">{xen:phrase month_1}</xen:option>
+		<xen:option value="2">{xen:phrase month_2}</xen:option>
+		<xen:option value="3">{xen:phrase month_3}</xen:option>
+		<xen:option value="4">{xen:phrase month_4}</xen:option>
+		<xen:option value="5">{xen:phrase month_5}</xen:option>
+		<xen:option value="6">{xen:phrase month_6}</xen:option>
+		<xen:option value="7">{xen:phrase month_7}</xen:option>
+		<xen:option value="8">{xen:phrase month_8}</xen:option>
+		<xen:option value="9">{xen:phrase month_9}</xen:option>
+		<xen:option value="10">{xen:phrase month_10}</xen:option>
+		<xen:option value="11">{xen:phrase month_11}</xen:option>
+		<xen:option value="12">{xen:phrase month_12}</xen:option>
+	</xen:select>
+	<xen:textbox name="register_date_day" value="{xen:if {$user.register_date_day}, {$user.register_date_day}}" size="2" inputclass="autoSize" placeholder="{xen:phrase day}" />
+	<xen:textbox name="register_date_year" value="{xen:if {$user.register_date_year}, {$user.register_date_year}}" size="4" inputclass="autoSize" placeholder="{xen:phrase year}" />
+</xen:controlunit>
+]]></template>
+  </admin_templates>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="file_health_check" execute_order="10" callback_class="ThemeHouse_EditUserDate_Listener_FileHealthCheck" callback_method="fileHealthCheck" active="1" hint="" description=""/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="ThemeHouse_EditUserDate_Listener_LoadClassController" callback_method="loadClassController" active="1" hint="" description=""/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="ThemeHouse_EditUserDate_Listener_LoadClassDataWriter" callback_method="loadClassDataWriter" active="1" hint="" description=""/>
+    <listener event_id="load_class_view" execute_order="10" callback_class="ThemeHouse_EditUserDate_Listener_LoadClassView" callback_method="loadClassView" active="1" hint="" description=""/>
+    <listener event_id="template_hook" execute_order="10" callback_class="ThemeHouse_EditUserDate_Listener_TemplateHook" callback_method="templateHook" active="1" hint="" description=""/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases/>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="footer" modification_key="th_copyrightNotice_editUserDate" description="Copyright notice for [⌂] Edit User Join Date" execution_order="1" enabled="1" action="callback">
+      <find><![CDATA[/{xen:phrase (?:xenforo|extra)_copyright}/]]></find>
+      <replace><![CDATA[ThemeHouse_Listener_InitDependencies::copyrightNotice]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
